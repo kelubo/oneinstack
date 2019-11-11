@@ -1,13 +1,13 @@
 [![PayPal donate button](https://img.shields.io/badge/paypal-donate-green.svg)](https://paypal.me/yeho) [![支付宝捐助按钮](https://img.shields.io/badge/%E6%94%AF%E4%BB%98%E5%AE%9D-%E5%90%91TA%E6%8D%90%E5%8A%A9-green.svg)](https://static.oneinstack.com/images/alipay.png) [![微信捐助按钮](https://img.shields.io/badge/%E5%BE%AE%E4%BF%A1-%E5%90%91TA%E6%8D%90%E5%8A%A9-green.svg)](https://static.oneinstack.com/images/weixin.png)
 
-This script is written using the shell, in order to quickly deploy `LEMP`/`LAMP`/`LNMP`/`LNMPA`/`LTMP`(Linux, Nginx/Tengine/OpenResty, MySQL in a production environment/MariaDB/Percona, PHP, JAVA), applicable to CentOS 6 ~ 7(including redhat), Debian 6 ~ 9, Ubuntu 12 ~ 18, Fedora 27~28 of 32 and 64.
+This script is written using the shell, in order to quickly deploy `LEMP`/`LAMP`/`LNMP`/`LNMPA`/`LTMP`(Linux, Nginx/Tengine/OpenResty, MySQL in a production environment/MariaDB/Percona, PHP, JAVA), applicable to CentOS 6 ~ 8(including redhat), Debian 8 ~ 10, Ubuntu 14 ~ 19, Fedora 27+ of 32 and 64.
 
 Script properties:
 - Continually updated, Provide Shell Interaction and Autoinstall
 - Source compiler installation, most stable source is the latest version, and download from the official site
 - Some security optimization
 - Providing a plurality of database versions (MySQL-8.0, MySQL-5.7, MySQL-5.6, MySQL-5.5, MariaDB-10.4, MariaDB-10.3, MariaDB-10.2, MariaDB-5.5, Percona-8.0, Percona-5.7, Percona-5.6, Percona-5.5, AliSQL-5.6, PostgreSQL, MongoDB)
-- Providing multiple PHP versions (PHP-7.3, PHP-7.2, PHP-7.1, PHP-7.0, PHP-5.6, PHP-5.5, PHP-5.4, PHP-5.3)
+- Providing multiple PHP versions (PHP-7.4, PHP-7.3, PHP-7.2, PHP-7.1, PHP-7.0, PHP-5.6, PHP-5.5, PHP-5.4, PHP-5.3)
 - Provide Nginx, Tengine, OpenResty and ngx_lua_waf
 - Providing a plurality of Tomcat version (Tomcat-9, Tomcat-8, Tomcat-7, Tomcat-6)
 - Providing a plurality of JDK version (JDK-11.0, JDK-1.8, JDK-1.7, JDK-1.6)
@@ -21,24 +21,37 @@ Script properties:
 - Provide local,remote(rsync between servers),Aliyun OSS,Qcloud COS,UPYUN,QINIU,Amazon S3,Google Drive and Dropbox backup script
 - Provided under HHVM install CentOS 6,7
 
-## How to use
+## Installation
 
-If your server system: CentOS/Redhat (Do not enter "//" and "// subsequent sentence)
+Install the dependencies for your distro, download the source and run the installation script.
+
+#### CentOS/Redhat
+
 ```bash
-yum -y install wget screen   // for CentOS / Redhat
-wget http://mirrors.linuxeye.com/oneinstack-full.tar.gz   // Contains the source code
-tar xzf oneinstack-full.tar.gz
-cd oneinstack   // If you need to modify the directory (installation, data storage, Nginx logs), modify options.conf file
-screen -S oneinstack    // If network interruption, you can execute the command `screen -r oneinstack` reconnect install window
-./install.sh
+yum -y install wget screen
 ```
-If your server system: Debian/Ubuntu (Do not enter "//" and "// subsequent sentence)
+
+#### Debian/Ubuntu
+
 ```bash
-apt-get -y install wget screen   // for Debian / Ubuntu
-wget http://mirrors.linuxeye.com/oneinstack-full.tar.gz   // Contains the source code
+apt-get -y install wget screen
+```
+
+#### Download Source and Install
+
+```bash
+wget http://mirrors.linuxeye.com/oneinstack-full.tar.gz
 tar xzf oneinstack-full.tar.gz
-cd oneinstack    // If you need to modify the directory (installation, data storage, Nginx logs), modify options.conf file
-screen -S oneinstack    // If network interruption, you can execute the command `screen -r oneinstack` reconnect install window
+cd oneinstack 
+```
+
+If you disconnect during installation, you can execute the command `screen -r lnmp` to reconnect to the install window
+```bash
+screen -S oneinstack 
+```
+
+If you need to modify the directory (installation, data storage, Nginx logs), modify `options.conf` file before running install.sh
+```bash
 ./install.sh
 ```
 
